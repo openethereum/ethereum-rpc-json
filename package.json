@@ -1,0 +1,26 @@
+{
+  "name": "ethereum-rpc-json",
+  "version": "0.0.0",
+  "description": "JSON file of all ethereum's rpc methods supported by parity",
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate": "./generator/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ethcore/ethereum-rpc-json.git"
+  },
+  "keywords": [
+    "ethereum",
+    "rpc",
+    "parity",
+    "json-rpc"
+  ],
+  "author": "ethcore team",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/ethcore/ethereum-rpc-json/issues"
+  },
+  "homepage": "https://github.com/ethcore/ethereum-rpc-json#readme"
+}

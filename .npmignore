@@ -1,0 +1,6 @@
+generator/
+scripts/
+*.spec.js
+.travis.yml
+.gitignore
+.git

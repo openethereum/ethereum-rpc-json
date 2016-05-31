@@ -1,0 +1,7 @@
+node_modules/
+.DS_STORE
+.module-cache
+*.log*
+*.swp
+reports
+coverage
