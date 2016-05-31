@@ -1,13 +1,15 @@
 #!/usr/bin/env node
 'use strict';
 
+// Depracated, make changes directly to rpc.json file
+
 const customFunctions = require('./custom-functions');
 const addFormatters = require('./add-formatters');
 const format = require('./format');
 
 const fs = require('fs');
 const nl = /\n+/;
-const OUTPUT_PATH = `${__dirname}/../lib/rpc.json`;
+const OUTPUT_PATH = `${__dirname}/generator-output/rpc.json`;
 
 const val = fs.readFileSync(`${__dirname}/docs.md`, 'utf8');
 const funcs = val.split(/\s#### /)
