@@ -5,3 +5,5 @@ node_modules/
 *.swp
 reports
 coverage
+/index.js
+/index.json
