@@ -4,7 +4,7 @@
   "description": "JSON file of all ethereum's rpc methods supported by parity",
   "main": "./lib/index.js",
   "scripts": {
-    "testOnce": "node_modules/.bin/mocha lib/*.spec.js",
+    "testOnce": "mocha 'lib/*.spec.js'",
     "test": "npm run testOnce -- -w"
   },
   "repository": {
