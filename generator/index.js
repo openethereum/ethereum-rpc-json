@@ -8,8 +8,10 @@ const INDEX_JSON = path.join(__dirname, '../index.json');
 const functions = [];
 
 Object.keys(interfaces).forEach((group) => {
-  interfaces[group].forEach((method) => {
-    method.name = `${group}_${method.name}`;
+  Object.keys(interfaces[group]).forEach((name) => {
+    const method = interfaces[group][name];
+
+    method.name = `${group}_${name}`;
     functions.push(method);
   });
 });
