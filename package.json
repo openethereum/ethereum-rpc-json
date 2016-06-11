@@ -8,6 +8,7 @@
     "build": "buildJson && buildJs",
     "buildJs": "rollup -c",
     "buildJson": "babel-node generator/index.js",
+    "lint": "eslint --ignore-path .gitignore ./lib/",
     "testOnce": "mocha 'lib/*.spec.js'",
     "test": "npm run testOnce -- -w"
   },
