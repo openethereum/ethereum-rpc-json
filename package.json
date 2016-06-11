@@ -5,7 +5,7 @@
   "main": "index.js",
   "jsnext:main": "lib/index.js",
   "scripts": {
-    "build": "buildJson && buildJs",
+    "build": "npm run buildJson && npm run buildJs",
     "buildJs": "rollup -c",
     "buildJson": "babel-node generator/index.js",
     "lint": "eslint --ignore-path .gitignore ./lib/ ./generator/",
