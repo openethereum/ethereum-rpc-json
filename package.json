@@ -2,9 +2,15 @@
   "name": "ethereum-rpc-json",
   "version": "0.0.1",
   "description": "JSON file of all ethereum's rpc methods supported by parity",
-  "main": "./lib/index.js",
+  "main": "index.js",
+  "jsnext:main": "lib/index.js",
   "scripts": {
-    "testOnce": "node_modules/.bin/mocha lib/*.spec.js",
+    "build": "npm run buildJson && npm run buildJs",
+    "buildJs": "rollup -c",
+    "buildJson": "babel-node generator/index.js",
+    "lint": "eslint --ignore-path .gitignore ./lib/ ./generator/",
+    "release": "./scripts/release.sh",
+    "testOnce": "mocha 'lib/*.spec.js'",
     "test": "npm run testOnce -- -w"
   },
   "repository": {
@@ -24,7 +30,21 @@
   },
   "homepage": "https://github.com/ethcore/ethereum-rpc-json#readme",
   "devDependencies": {
+    "babel-cli": "^6.9.0",
+    "babel-core": "^6.9.1",
+    "babel-eslint": "^6.0.4",
+    "babel-plugin-transform-runtime": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-es2015-rollup": "^1.1.1",
+    "babel-preset-stage-0": "^6.5.0",
     "chai": "^3.5.0",
-    "mocha": "^2.5.3"
+    "eslint": "^2.11.1",
+    "eslint-config-semistandard": "^6.0.2",
+    "eslint-config-standard": "^5.3.1",
+    "eslint-plugin-promise": "^1.3.2",
+    "eslint-plugin-standard": "^1.3.2",
+    "mocha": "^2.5.3",
+    "rollup": "^0.30.0",
+    "rollup-plugin-babel": "^2.5.1"
   }
 }
