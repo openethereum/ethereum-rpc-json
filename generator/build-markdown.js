@@ -4,6 +4,8 @@ import path from 'path';
 import interfaces from '../lib';
 
 const MARKDOWN = path.join(__dirname, '../interfaces.md');
+const BLOCK_BEGIN = '```js\n';
+const BLOCK_END = '\n```';
 
 let preamble = '# interfaces\n';
 let markdown = '';
@@ -14,13 +16,22 @@ Object.keys(interfaces).sort().forEach((group) => {
   preamble = `${preamble}\n- [${group}](#${group})`;
   markdown = `${markdown}\n## ${group}\n`;
 
-  Object.keys(interfaces[group]).sort().forEach((name) => {
-    const method = interfaces[group][name];
+  Object.keys(interfaces[group]).sort().forEach((iname) => {
+    const method = interfaces[group][iname];
+    const name = `${group}_${iname}`;
+    const desc = method.desc;
+    const params = method.params.map((param) => {
+      switch (Object.prototype.toString.call(param)) {
+        case '[object String]':
+          return `- ${param}`;
+        default:
+          return `- ${BLOCK_BEGIN}${JSON.stringify(param, null, 2)}${BLOCK_END}`;
+      }
+    });
+    const returns = method.returns || 'none';
 
-    method.name = `${group}_${name}`;
-
-    markdown = `${markdown}\n- [${method.name}](#${method.name})`;
-    content = `${content}### ${method.name}\n\n${method.desc}\n\n#### parameters\n\n#### returns\n\n`;
+    markdown = `${markdown}\n- [${name}](#${name})`;
+    content = `${content}### ${name}\n\n${desc}\n\n#### parameters\n\n${params.join('\n') || 'none'}\n\n#### returns\n\n${returns}\n\n`;
   });
 
   markdown = `${markdown}\n\n${content}`;
