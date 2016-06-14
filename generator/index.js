@@ -22,7 +22,7 @@ function formatType (obj) {
     });
 
     return {
-      description: formatDescription(obj),
+      desc: formatDescription(obj),
       details: formatted
     };
   } else if (obj.type && obj.type.name) {
