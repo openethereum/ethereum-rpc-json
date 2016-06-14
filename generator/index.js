@@ -35,8 +35,10 @@ function formatType (obj) {
 Object.keys(interfaces).sort().forEach((group) => {
   Object.keys(interfaces[group]).sort().forEach((name) => {
     const method = interfaces[group][name];
+    const deprecated = method.deprecated ? ' (Deprecated and not supported, to be removed in a future version)' : '';
 
     method.name = `${group}_${name}`;
+    method.desc = `${method.desc}${deprecated}`;
     method.params = method.params.map(formatType);
     method.returns = formatType(method.returns);
 
