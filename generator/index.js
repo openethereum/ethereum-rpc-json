@@ -37,14 +37,14 @@ Object.keys(interfaces).sort().forEach((group) => {
     const method = interfaces[group][name];
     const deprecated = method.deprecated ? ' (Deprecated and not supported, to be removed in a future version)' : '';
 
-    method.name = `${group}_${name}`;
-    method.desc = `${method.desc}${deprecated}`;
-    method.params = method.params.map(formatType);
-    method.returns = formatType(method.returns);
-    method.inputFormatters = method.params.map((param) => param.format || null);
-    method.outputFormatter = method.returns.format || null;
-
-    methods.push(method);
+    methods.push({
+      name: `${group}_${name}`,
+      desc: `${method.desc}${deprecated}`,
+      params: method.params.map(formatType),
+      returns: formatType(method.returns),
+      inputFormatters: method.params.map((param) => param.format || null),
+      outputFormatter: method.returns.format || null
+    });
   });
 });
 
