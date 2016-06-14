@@ -41,6 +41,8 @@ Object.keys(interfaces).sort().forEach((group) => {
     method.desc = `${method.desc}${deprecated}`;
     method.params = method.params.map(formatType);
     method.returns = formatType(method.returns);
+    method.inputFormatters = method.params.map((param) => param.format || null);
+    method.outputFormatter = method.returns.format || null;
 
     methods.push(method);
   });
