@@ -6,6 +6,13 @@ import interfaces from '../lib';
 const INDEX_JSON = path.join(__dirname, '../index.json');
 const methods = [];
 
+function formatDescription (obj) {
+  const optional = obj.optional ? '(optional) ' : '';
+  const defaults = obj.default ? `(default: ${obj.default}) ` : '';
+
+  return `${obj.type.name} - ${optional}${defaults}${obj.desc}`;
+}
+
 function formatType (obj) {
   if (obj.type === Object && obj.details) {
     const formatted = {};
@@ -15,11 +22,11 @@ function formatType (obj) {
     });
 
     return {
-      description: `${obj.type.name} - ${obj.desc}`,
+      description: formatDescription(obj),
       details: formatted
     };
   } else if (obj.type && obj.type.name) {
-    return `${obj.type.name} - ${obj.desc}`;
+    return formatDescription(obj);
   }
 
   return obj;
