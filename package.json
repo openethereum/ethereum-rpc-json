@@ -5,9 +5,10 @@
   "main": "index.js",
   "jsnext:main": "lib/index.js",
   "scripts": {
-    "build": "npm run buildJson && npm run buildJs",
+    "build": "npm run buildJs && npm run buildJson && npm run buildMarkdown",
     "buildJs": "rollup -c",
-    "buildJson": "babel-node generator/index.js",
+    "buildJson": "babel-node generator/build-json.js",
+    "buildMarkdown": "babel-node generator/build-markdown.js",
     "lint": "eslint --ignore-path .gitignore ./lib/ ./generator/",
     "release": "./scripts/release.sh",
     "testOnce": "mocha 'lib/*.spec.js'",
