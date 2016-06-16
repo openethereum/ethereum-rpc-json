@@ -19,7 +19,7 @@
 
 ### db_getHex
 
-Returns binary data from the local database.
+Returns binary data from the local database. (Deprecated and not supported, to be removed in a future version)
 
 #### parameters
 
@@ -32,7 +32,7 @@ Returns binary data from the local database.
 
 ### db_getString
 
-Returns string from the local database.
+Returns string from the local database. (Deprecated and not supported, to be removed in a future version)
 
 #### parameters
 
@@ -45,7 +45,7 @@ Returns string from the local database.
 
 ### db_putHex
 
-Stores binary data in the local database.
+Stores binary data in the local database. (Deprecated and not supported, to be removed in a future version)
 
 #### parameters
 
@@ -59,7 +59,7 @@ Stores binary data in the local database.
 
 ### db_putString
 
-Stores a string in the local database.
+Stores a string in the local database. (Deprecated and not supported, to be removed in a future version)
 
 #### parameters
 

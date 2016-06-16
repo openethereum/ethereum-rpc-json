@@ -40,7 +40,8 @@ Object.keys(interfaces).sort().forEach((group) => {
   Object.keys(interfaces[group]).sort().forEach((iname) => {
     const method = interfaces[group][iname];
     const name = `${group}_${iname}`;
-    const desc = method.desc;
+    const deprecated = method.deprecated ? ' (Deprecated and not supported, to be removed in a future version)' : '';
+    const desc = `${method.desc}${deprecated}`;
     const params = method.params.map(formatType).join('\n');
     const returns = formatType(method.returns);
 
