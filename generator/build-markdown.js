@@ -4,8 +4,6 @@ import path from 'path';
 import interfaces from '../lib';
 
 const MARKDOWN = path.join(__dirname, '../interfaces.md');
-const BLOCK_BEGIN = '```js\n';
-const BLOCK_END = '```';
 
 let preamble = '# interfaces\n';
 let markdown = '';
