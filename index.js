@@ -619,16 +619,51 @@ var ethcore = {
     outputFormatter: null
   },
   devLogs: {
-    desc: '?',
+    desc: 'Returns latest logs of your node.',
     params: [],
     returns: '`ARRAY` - Dev logs',
     inputFormatters: [],
     outputFormatter: null
   },
   devLogsLevels: {
+    desc: 'Returns current log level settings.',
+    params: [],
+    returns: '`String` - Current log level',
+    inputFormatters: [],
+    outputFormatter: null
+  },
+  unsignedTransactionsCount: {
+    desc: 'Returns number of unsigned transactions when running with Trusted Signer. Error otherwise.',
+    params: [],
+    returns: '`QUANTITY` - Number of unsigned transactions',
+    inputFormatters: [],
+    outputFormatter: null
+  },
+  addReservedPeer: {
+    desc: '?',
+    params: ['`String` - Enode'],
+    returns: '`Boolean`',
+    inputFormatters: [null],
+    outputFormatter: null
+  },
+  removeReservedPeer: {
+    desc: '?',
+    params: ['`String` - Enode'],
+    returns: '`Boolean`',
+    inputFormatters: [null],
+    outputFormatter: null
+  },
+  dropNonReservedPeers: {
     desc: '?',
     params: [],
-    returns: '?',
+    returns: '`Boolean`',
+    inputFormatters: [],
+    outputFormatter: null
+  },
+  acceptNonReservedPeers: {
+    desc: '?',
+    params: [],
+    returns: '`Boolean`',
     inputFormatters: [],
     outputFormatter: null
   }
