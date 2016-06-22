@@ -792,10 +792,7 @@
       "params": [
         "String - Enode"
       ],
-      "returns": {
-        "type": "Boolean",
-        "desc": "?"
-      },
+      "returns": "Boolean - ?",
       "inputFormatters": [
         null
       ],
