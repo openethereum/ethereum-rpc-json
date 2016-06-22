@@ -873,9 +873,12 @@ Additonally Filters timeout when they aren't requested with [eth_getFilterChange
 
 ## ethcore
 
+- [ethcore_acceptNonReservedPeers](#ethcore_acceptNonReservedPeers)
+- [ethcore_addReservedPeer](#ethcore_addReservedPeer)
 - [ethcore_defaultExtraData](#ethcore_defaultExtraData)
 - [ethcore_devLogs](#ethcore_devLogs)
 - [ethcore_devLogsLevels](#ethcore_devLogsLevels)
+- [ethcore_dropNonReservedPeers](#ethcore_dropNonReservedPeers)
 - [ethcore_extraData](#ethcore_extraData)
 - [ethcore_gasFloorTarget](#ethcore_gasFloorTarget)
 - [ethcore_minGasPrice](#ethcore_minGasPrice)
@@ -883,6 +886,7 @@ Additonally Filters timeout when they aren't requested with [eth_getFilterChange
 - [ethcore_netMaxPeers](#ethcore_netMaxPeers)
 - [ethcore_netPort](#ethcore_netPort)
 - [ethcore_nodeName](#ethcore_nodeName)
+- [ethcore_removeReservedPeer](#ethcore_removeReservedPeer)
 - [ethcore_rpcSettings](#ethcore_rpcSettings)
 - [ethcore_setAuthor](#ethcore_setAuthor)
 - [ethcore_setExtraData](#ethcore_setExtraData)
@@ -890,6 +894,31 @@ Additonally Filters timeout when they aren't requested with [eth_getFilterChange
 - [ethcore_setMinGasPrice](#ethcore_setMinGasPrice)
 - [ethcore_setTransactionsLimit](#ethcore_setTransactionsLimit)
 - [ethcore_transactionsLimit](#ethcore_transactionsLimit)
+- [ethcore_unsignedTransactionsCount](#ethcore_unsignedTransactionsCount)
+
+### ethcore_acceptNonReservedPeers
+
+?
+
+#### parameters
+
+none
+
+#### returns
+
+- `Boolean` - ?
+
+### ethcore_addReservedPeer
+
+?
+
+#### parameters
+
+- `String` - Enode
+
+#### returns
+
+[object Object]
 
 ### ethcore_defaultExtraData
 
@@ -905,7 +934,7 @@ none
 
 ### ethcore_devLogs
 
-?
+Returns latest logs of your node
 
 #### parameters
 
@@ -917,6 +946,18 @@ none
 
 ### ethcore_devLogsLevels
 
+Returns current log level settings
+
+#### parameters
+
+none
+
+#### returns
+
+- `String` - undefined
+
+### ethcore_dropNonReservedPeers
+
 ?
 
 #### parameters
@@ -925,7 +966,7 @@ none
 
 #### returns
 
-?
+- `Boolean` - ?
 
 ### ethcore_extraData
 
@@ -1011,6 +1052,18 @@ none
 
 - `String` - Node name
 
+### ethcore_removeReservedPeer
+
+?
+
+#### parameters
+
+- `String` - Encode
+
+#### returns
+
+- `Boolean` - ?
+
 ### ethcore_rpcSettings
 
 Returns basic settings of rpc (enabled, port, interface).
@@ -1094,6 +1147,18 @@ none
 #### returns
 
 - `Quantity` - Current max number of transactions in queue
+
+### ethcore_unsignedTransactionsCount
+
+Returns number of unsigned transactions when running with Trusted Signer. Error otherwise
+
+#### parameters
+
+none
+
+#### returns
+
+- `Quantity` - Number of unsigned transactions
 
 
 ## net

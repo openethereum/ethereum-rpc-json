@@ -996,6 +996,27 @@ var eth = {
 };
 
 var ethcore = {
+  acceptNonReservedPeers: {
+    desc: '?',
+    params: [],
+    returns: {
+      type: Boolean,
+      desc: '?'
+    }
+  },
+
+  addReservedPeer: {
+    desc: '?',
+    params: [{
+      type: String,
+      desc: 'Enode'
+    }],
+    returns: {
+      type: 'Boolean',
+      desc: '?'
+    }
+  },
+
   defaultExtraData: {
     desc: 'Returns the default extra data',
     params: [],
@@ -1006,7 +1027,7 @@ var ethcore = {
   },
 
   devLogs: {
-    desc: '?',
+    desc: 'Returns latest logs of your node',
     params: [],
     returns: {
       type: Array,
@@ -1015,9 +1036,21 @@ var ethcore = {
   },
 
   devLogsLevels: {
+    desc: 'Returns current log level settings',
+    params: [],
+    returns: {
+      type: String,
+      decs: 'Current log level'
+    }
+  },
+
+  dropNonReservedPeers: {
     desc: '?',
     params: [],
-    returns: '?'
+    returns: {
+      type: Boolean,
+      desc: '?'
+    }
   },
 
   extraData: {
@@ -1082,6 +1115,18 @@ var ethcore = {
     returns: {
       type: String,
       desc: 'Node name'
+    }
+  },
+
+  removeReservedPeer: {
+    desc: '?',
+    params: [{
+      type: String,
+      desc: 'Encode'
+    }],
+    returns: {
+      type: Boolean,
+      desc: '?'
     }
   },
 
@@ -1166,6 +1211,15 @@ var ethcore = {
       type: Quantity,
       desc: 'Current max number of transactions in queue',
       format: 'outputBigNumberFormatter'
+    }
+  },
+
+  unsignedTransactionsCount: {
+    desc: 'Returns number of unsigned transactions when running with Trusted Signer. Error otherwise',
+    params: [],
+    returns: {
+      type: Quantity,
+      desc: 'Number of unsigned transactions'
     }
   }
 };

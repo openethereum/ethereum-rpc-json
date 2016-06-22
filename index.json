@@ -779,6 +779,29 @@
       "outputFormatter": null
     },
     {
+      "name": "ethcore_acceptNonReservedPeers",
+      "desc": "?",
+      "params": [],
+      "returns": "Boolean - ?",
+      "inputFormatters": [],
+      "outputFormatter": null
+    },
+    {
+      "name": "ethcore_addReservedPeer",
+      "desc": "?",
+      "params": [
+        "String - Enode"
+      ],
+      "returns": {
+        "type": "Boolean",
+        "desc": "?"
+      },
+      "inputFormatters": [
+        null
+      ],
+      "outputFormatter": null
+    },
+    {
       "name": "ethcore_defaultExtraData",
       "desc": "Returns the default extra data",
       "params": [],
@@ -788,7 +811,7 @@
     },
     {
       "name": "ethcore_devLogs",
-      "desc": "?",
+      "desc": "Returns latest logs of your node",
       "params": [],
       "returns": "Array - Development logs",
       "inputFormatters": [],
@@ -796,9 +819,17 @@
     },
     {
       "name": "ethcore_devLogsLevels",
+      "desc": "Returns current log level settings",
+      "params": [],
+      "returns": "String - undefined",
+      "inputFormatters": [],
+      "outputFormatter": null
+    },
+    {
+      "name": "ethcore_dropNonReservedPeers",
       "desc": "?",
       "params": [],
-      "returns": "?",
+      "returns": "Boolean - ?",
       "inputFormatters": [],
       "outputFormatter": null
     },
@@ -856,6 +887,18 @@
       "params": [],
       "returns": "String - Node name",
       "inputFormatters": [],
+      "outputFormatter": null
+    },
+    {
+      "name": "ethcore_removeReservedPeer",
+      "desc": "?",
+      "params": [
+        "String - Encode"
+      ],
+      "returns": "Boolean - ?",
+      "inputFormatters": [
+        null
+      ],
       "outputFormatter": null
     },
     {
@@ -933,6 +976,14 @@
       "returns": "Quantity - Current max number of transactions in queue",
       "inputFormatters": [],
       "outputFormatter": "outputBigNumberFormatter"
+    },
+    {
+      "name": "ethcore_unsignedTransactionsCount",
+      "desc": "Returns number of unsigned transactions when running with Trusted Signer. Error otherwise",
+      "params": [],
+      "returns": "Quantity - Number of unsigned transactions",
+      "inputFormatters": [],
+      "outputFormatter": null
     },
     {
       "name": "net_listening",
