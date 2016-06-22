@@ -4,26 +4,48 @@ import path from 'path';
 import interfaces from '../lib';
 
 const INDEX_JSON = path.join(__dirname, '../index.json');
+const methods = [];
 
-const functions = [];
+function formatDescription (obj) {
+  const optional = obj.optional ? '(optional) ' : '';
+  const defaults = obj.default ? `(default: ${obj.default}) ` : '';
 
-Object.keys(interfaces).forEach((group) => {
-  Object.keys(interfaces[group]).forEach((name) => {
+  return `${obj.type.name} - ${optional}${defaults}${obj.desc}`;
+}
+
+function formatType (obj) {
+  if (obj.type === Object && obj.details) {
+    const formatted = {};
+
+    Object.keys(obj.details).sort().forEach((key) => {
+      formatted[key] = formatType(obj.details[key]);
+    });
+
+    return {
+      desc: formatDescription(obj),
+      details: formatted
+    };
+  } else if (obj.type && obj.type.name) {
+    return formatDescription(obj);
+  }
+
+  return obj;
+}
+
+Object.keys(interfaces).sort().forEach((group) => {
+  Object.keys(interfaces[group]).sort().forEach((name) => {
     const method = interfaces[group][name];
+    const deprecated = method.deprecated ? ' (Deprecated and not supported, to be removed in a future version)' : '';
 
-    method.name = `${group}_${name}`;
-    functions.push(method);
+    methods.push({
+      name: `${group}_${name}`,
+      desc: `${method.desc}${deprecated}`,
+      params: method.params.map(formatType),
+      returns: formatType(method.returns),
+      inputFormatters: method.params.map((param) => param.format || null),
+      outputFormatter: method.returns.format || null
+    });
   });
 });
 
-fs.writeFileSync(INDEX_JSON, JSON.stringify({
-  methods: functions.sort((a, b) => {
-    if (a.name < b.name) {
-      return -1;
-    } else if (a.name > b.name) {
-      return 1;
-    }
-
-    return 0;
-  })
-}, null, 2), 'utf8');
+fs.writeFileSync(INDEX_JSON, JSON.stringify({ methods: methods }, null, 2), 'utf8');
