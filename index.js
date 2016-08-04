@@ -1012,7 +1012,7 @@ var ethcore = {
       desc: 'Enode'
     }],
     returns: {
-      type: 'Boolean',
+      type: Boolean,
       desc: '?'
     }
   },

@@ -918,7 +918,7 @@ none
 
 #### returns
 
-[object Object]
+- `Boolean` - ?
 
 ### ethcore_defaultExtraData
 
